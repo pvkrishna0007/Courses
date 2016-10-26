@@ -18,7 +18,7 @@ public class WeeklyCourseActivity extends BaseCompactActivity {
 
         activityCoursesBinding = DataBindingUtil.setContentView(this, R.layout.activity_weekly_courses_new);
 
-        init();
+//        init();   //vvvvvbbb
     }
 
     private void init() {
