@@ -6,6 +6,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.tenhrs.courses.BaseCompactActivity;
+import com.tenhrs.courses.R;
 import com.tenhrs.courses.databinding.ActivityLoginBinding;
 
 
