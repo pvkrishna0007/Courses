@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <include
+            android:id="@+id/toolbar_include"
+            layout="@layout/layout_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <LinearLayout
+            android:id="@+id/ll_activities"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_below="@+id/toolbar_include"
+            android:paddingTop="70dp"
+            android:weightSum="2">
+
+
+            <CheckedTextView
+                android:id="@+id/cb_flashcards"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:layout_weight="1"
+                android:drawablePadding="@dimen/dp_10"
+                android:drawableTop="@drawable/ic_flashcards"
+                android:gravity="center"
+                android:text="Flashcards"
+                android:textColor="@color/black" />
+
+            <CheckedTextView
+                android:id="@+id/cb_quiz"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:layout_weight="1"
+                android:drawablePadding="@dimen/dp_10"
+                android:drawableTop="@drawable/ic_quiz"
+                android:gravity="center"
+                android:text="Quizzes"
+                android:textColor="@color/black" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_weeks"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:gravity="bottom"
+            android:orientation="horizontal"
+            android:paddingBottom="40dp"
+            android:weightSum="4">
+
+            <CheckedTextView
+                android:id="@+id/cb_week1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:layout_weight="1"
+                android:checked="true"
+                android:drawablePadding="@dimen/dp_10"
+                android:drawableTop="@drawable/ic_week1_active"
+                android:gravity="center"
+                android:text="Week1"
+                android:textColor="@color/black" />
+
+            <CheckedTextView
+                android:id="@+id/cb_week2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:layout_weight="1"
+                android:drawablePadding="@dimen/dp_10"
+                android:drawableTop="@drawable/ic_week2"
+                android:gravity="center"
+                android:text="Week2"
+                android:textColor="@color/black" />
+
+            <CheckedTextView
+                android:id="@+id/cb_week3"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:layout_weight="1"
+                android:drawablePadding="@dimen/dp_10"
+                android:drawableTop="@drawable/ic_week3"
+                android:gravity="center"
+                android:text="Week3"
+                android:textColor="@color/black" />
+
+            <CheckedTextView
+                android:id="@+id/cb_week4"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:layout_weight="1"
+                android:drawablePadding="@dimen/dp_10"
+                android:drawableTop="@drawable/ic_week4"
+                android:gravity="center"
+                android:text="Week4"
+                android:textColor="@color/black" />
+        </LinearLayout>
+
+    </RelativeLayout>
+</layout>
