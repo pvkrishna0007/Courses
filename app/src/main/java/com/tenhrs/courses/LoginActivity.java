@@ -1,20 +1,23 @@
 package com.tenhrs.courses;
 
+import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.tenhrs.courses.databinding.ActivityLoginBinding;
+
 
 public class LoginActivity extends BaseCompactActivity {
+
+    private ActivityLoginBinding activityLoginBinding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
-        // Tst asfasfasfsdfasdfasdfsaf
 
-        // hhkkg
-        int a=0;
+        activityLoginBinding = DataBindingUtil.setContentView(this, R.layout.activity_login);
+
     }
 
     @Override
