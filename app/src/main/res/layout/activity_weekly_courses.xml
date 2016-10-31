@@ -3,31 +3,38 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <include
+        android:id="@+id/toolbar_include"
+        layout="@layout/layout_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
     <LinearLayout
         android:id="@+id/ll_activities"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/toolbar_include"
+        android:orientation="horizontal"
         android:paddingTop="70dp"
-        android:weightSum="3"
-        android:orientation="horizontal">
+        android:weightSum="3">
 
 
         <CheckedTextView
             android:layout_width="0dp"
-            android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:drawableTop="@drawable/android_selector"
-            android:text="CheckBox"
             android:layout_gravity="bottom"
+            android:layout_weight="1"
+            android:drawableTop="@drawable/android_selector"
             android:gravity="center"
+            android:text="CheckBox"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:textColor="#000000" />
 
         <LinearLayout
             android:layout_width="0dp"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center"
-            android:layout_height="wrap_content"
             android:orientation="vertical">
 
             <ImageView
@@ -45,9 +52,9 @@
 
         <LinearLayout
             android:layout_width="0dp"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center"
-            android:layout_height="wrap_content"
             android:orientation="vertical">
 
             <ImageView
@@ -69,17 +76,17 @@
         android:id="@+id/ll_weeks"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:weightSum="4"
-        android:paddingBottom="40dp"
-        android:gravity="bottom"
         android:layout_alignParentBottom="true"
-        android:orientation="horizontal">
+        android:gravity="bottom"
+        android:orientation="horizontal"
+        android:paddingBottom="40dp"
+        android:weightSum="4">
 
         <LinearLayout
             android:layout_width="0dp"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center_horizontal|bottom"
-            android:layout_height="wrap_content"
             android:orientation="vertical">
 
             <ImageView
@@ -97,9 +104,9 @@
 
         <LinearLayout
             android:layout_width="0dp"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center_horizontal|bottom"
-            android:layout_height="wrap_content"
             android:orientation="vertical">
 
             <ImageView
@@ -118,9 +125,9 @@
 
         <LinearLayout
             android:layout_width="0dp"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center_horizontal|bottom"
-            android:layout_height="wrap_content"
             android:orientation="vertical">
 
             <ImageView
@@ -138,9 +145,9 @@
 
         <LinearLayout
             android:layout_width="0dp"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center_horizontal|bottom"
-            android:layout_height="wrap_content"
             android:orientation="vertical">
 
             <ImageView

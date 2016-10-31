@@ -18,6 +18,7 @@ public class LoginActivity extends BaseCompactActivity {
 
         activityLoginBinding = DataBindingUtil.setContentView(this, R.layout.activity_login);
 
+
     }
 
     @Override
