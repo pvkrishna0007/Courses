@@ -1,10 +1,14 @@
 package com.tenhrs.courses;
 
+import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.tenhrs.courses.activity.BaseCompactActivity;
+import com.tenhrs.courses.activity.HomeScreen;
+import com.tenhrs.courses.database.CourseDB;
 import com.tenhrs.courses.databinding.ActivityLoginBinding;
 
 
@@ -17,6 +21,9 @@ public class LoginActivity extends BaseCompactActivity {
         super.onCreate(savedInstanceState);
 
         activityLoginBinding = DataBindingUtil.setContentView(this, R.layout.activity_login);
+        CourseDB courseDB=new CourseDB(this);
+        courseDB.getCourses(1);
+        startActivity(new Intent(this,HomeScreen.class));
 
 
     }

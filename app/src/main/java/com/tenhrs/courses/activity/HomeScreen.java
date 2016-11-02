@@ -1,66 +1,82 @@
 package com.tenhrs.courses.activity;
 
-import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager;
+import android.content.Intent;
+import android.databinding.DataBindingUtil;
 import android.os.Bundle;
-import android.os.Environment;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
+import android.view.View;
 
 import com.tenhrs.courses.R;
-import com.tenhrs.courses.adapter.LanguagesAdapter;
-import com.tenhrs.courses.common.Constants;
-import com.tenhrs.courses.common.Utils;
-import com.tenhrs.courses.database.CourseDB;
+import com.tenhrs.courses.databinding.ActivityCoursesListBinding;
 import com.tenhrs.courses.model.Course;
 
-import java.io.File;
 import java.util.List;
 
-public class HomeScreen extends AppCompatActivity {
+
+public class HomeScreen extends AppCompatActivity implements View.OnClickListener {
     private RecyclerView list;
     private GridLayoutManager lLayout;
     private List<Course> coursesList=null;
+    private ActivityCoursesListBinding activityCoursesListBinding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.list_languages_fragment);
-        lLayout = new GridLayoutManager(this, 2);
+        activityCoursesListBinding = DataBindingUtil.setContentView(this, R.layout.activity_courses_list);
+        activityCoursesListBinding.imgOffice.setOnClickListener(this);
+        activityCoursesListBinding.imgAndroid.setOnClickListener(this);
+        activityCoursesListBinding.imgAngulerjs.setOnClickListener(this);
+        activityCoursesListBinding.imgBigdata.setOnClickListener(this);
+        activityCoursesListBinding.imgHtml.setOnClickListener(this);
+        activityCoursesListBinding.imgIos.setOnClickListener(this);
+        activityCoursesListBinding.imgPmp.setOnClickListener(this);
 
-        list = (RecyclerView)findViewById(R.id.grid_all_langs);
-        list.setHasFixedSize(true);
-        list.setLayoutManager(lLayout);
-        prepareData();
-        LanguagesAdapter languagesAdapter = new LanguagesAdapter(this,coursesList);
-        list.setAdapter(languagesAdapter);
+
+
+//        lLayout = new GridLayoutManager(this, 2);
+//
+//        list = (RecyclerView)findViewById(R.id.grid_all_langs);
+//        list.setHasFixedSize(true);
+//        list.setLayoutManager(lLayout);
+//        CourseDB courseDB=new CourseDB(this);
+//        coursesList=courseDB.getCourses(0);
+//        LanguagesAdapter languagesAdapter = new LanguagesAdapter(this,coursesList);
+//        list.setAdapter(languagesAdapter);
 
     }
-    private void prepareData(){
-        CourseDB courseDB=new CourseDB(this);
-        coursesList=courseDB.getCourses(0);
-        try {
-            PackageManager m = getPackageManager();
-            String s = getPackageName();
-            try {
-                PackageInfo p = m.getPackageInfo(s, 0);
-                s = p.applicationInfo.dataDir;
-            } catch (PackageManager.NameNotFoundException e) {
-                Log.w("yourtag", "Error Package name not found ", e);
-            }
 
-            String outFileName = Environment.getExternalStorageDirectory().getPath()+"/"
-                    + Constants.DB_NAME;
 
-            File file=new File(outFileName);
-            if(!file.exists()) {
-                Utils.copyDataBase(getApplicationContext());
-                Log.i("HomeActivity","db copied.....");
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.img_office:
+                launchWeeklyActivity();
+            break;
+            case R.id.img_html:
+                launchWeeklyActivity();
+                break;
+            case R.id.img_bigdata:
+                launchWeeklyActivity();
+                break;
+            case R.id.img_ios:
+                launchWeeklyActivity();
+                break;
+            case R.id.img_angulerjs:
+                launchWeeklyActivity();
+                break;
+            case R.id.img_android:
+                launchWeeklyActivity();
+                break;
+            case R.id.img_pmp:
+                launchWeeklyActivity();
+
+                break;
         }
+
+    }
+    private void launchWeeklyActivity(){
+        startActivity(new Intent(this,WeeklyCourseActivity.class));
     }
 }

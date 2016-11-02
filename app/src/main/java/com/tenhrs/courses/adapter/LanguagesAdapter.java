@@ -76,4 +76,7 @@ public class LanguagesAdapter extends RecyclerView.Adapter<LanguagesAdapter.Lang
             });
         }
     }
+    private void bindImage(View view){
+
+    }
 }

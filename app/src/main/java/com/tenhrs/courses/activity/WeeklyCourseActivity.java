@@ -1,8 +1,9 @@
-package com.tenhrs.courses;
+package com.tenhrs.courses.activity;
 
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 
+import com.tenhrs.courses.R;
 import com.tenhrs.courses.databinding.ActivityWeeklyCoursesNewBinding;
 
 /**
@@ -14,10 +15,10 @@ public class WeeklyCourseActivity extends BaseCompactActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
 
         activityCoursesBinding = DataBindingUtil.setContentView(this, R.layout.activity_weekly_courses_new);
-
 //        init();   //vvvvvbbb
     }
 
