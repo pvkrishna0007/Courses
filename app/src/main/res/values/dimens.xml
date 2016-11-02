@@ -5,4 +5,9 @@
     <dimen name="dp_10">10dp</dimen>
     <dimen name="course_img_width">94dp</dimen>
     <dimen name="course_img_height">94dp</dimen>
+
+    <dimen name="option_width">125dp</dimen>
+    <dimen name="option_height">125dp</dimen>
+    <dimen name="option_margin">10dp</dimen>
+
 </resources>
