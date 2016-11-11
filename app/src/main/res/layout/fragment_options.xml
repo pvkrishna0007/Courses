@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <include
+            android:id="@+id/toolbar_include"
+            layout="@layout/layout_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <ProgressBar
+            android:id="@+id/pb_status"
+            style="@android:style/Widget.ProgressBar.Horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/toolbar_include"
+            android:max="100"
+            android:progress="20" />
+
+        <ImageView
+            android:id="@+id/ivQuestion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/pb_status"
+            android:src="@drawable/ic_android" />
+
+        <TextView
+            android:id="@+id/tvQuestion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/ivQuestion"
+            android:gravity="center"
+            android:text="Who is the first prime minister of India?" />
+
+        <ScrollView
+            android:id="@+id/svOptions"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/btn_next"
+            android:layout_below="@+id/tvQuestion"
+            android:layout_marginBottom="5dp"
+            android:layout_marginTop="5dp">
+
+            <RelativeLayout
+                android:id="@+id/rl_options"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:gravity="center_horizontal">
+
+                <ImageView
+                    android:id="@+id/ivOptionOne"
+                    android:layout_width="@dimen/option_width"
+                    android:layout_height="@dimen/option_height"
+                    android:layout_margin="@dimen/option_margin"
+                    android:background="@drawable/image_button_background" />
+
+                <TextView
+                    android:id="@+id/tvOptionOne"
+                    style="@style/OptionTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@+id/ivOptionOne"
+                    android:layout_alignLeft="@+id/ivOptionOne"
+                    android:layout_alignRight="@+id/ivOptionOne"
+                    android:layout_alignTop="@+id/ivOptionOne"
+                    android:text="OptionOne" />
+
+
+                <ImageView
+                    android:id="@+id/ivOptionTwo"
+                    android:layout_width="@dimen/option_width"
+                    android:layout_height="@dimen/option_height"
+                    android:layout_margin="@dimen/option_margin"
+                    android:layout_toRightOf="@+id/ivOptionOne"
+                    android:background="@drawable/image_button_background" />
+
+                <TextView
+                    android:id="@+id/tvOptionTwo"
+                    style="@style/OptionTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@+id/ivOptionTwo"
+                    android:layout_alignLeft="@+id/ivOptionTwo"
+                    android:layout_alignRight="@+id/ivOptionTwo"
+                    android:layout_alignTop="@+id/ivOptionTwo"
+                    android:text="OptionTwo" />
+
+                <ImageView
+                    android:id="@+id/ivOptionThree"
+                    android:layout_width="@dimen/option_width"
+                    android:layout_height="@dimen/option_height"
+                    android:layout_below="@+id/ivOptionOne"
+                    android:layout_margin="@dimen/option_margin"
+                    android:background="@drawable/image_button_background" />
+
+                <TextView
+                    android:id="@+id/tvOptionThree"
+                    style="@style/OptionTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@+id/ivOptionThree"
+                    android:layout_alignLeft="@+id/ivOptionThree"
+                    android:layout_alignRight="@+id/ivOptionThree"
+                    android:layout_alignTop="@+id/ivOptionThree"
+                    android:text="OptionThree" />
+
+                <ImageView
+                    android:id="@+id/ivOptionFour"
+                    android:layout_width="@dimen/option_width"
+                    android:layout_height="@dimen/option_height"
+                    android:layout_below="@+id/ivOptionOne"
+                    android:layout_margin="@dimen/option_margin"
+                    android:layout_toRightOf="@+id/ivOptionThree"
+                    android:background="@drawable/image_button_background" />
+
+                <TextView
+                    android:id="@+id/tvOptionFour"
+                    style="@style/OptionTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@+id/ivOptionFour"
+                    android:layout_alignLeft="@+id/ivOptionFour"
+                    android:layout_alignRight="@+id/ivOptionFour"
+                    android:layout_alignTop="@+id/ivOptionFour"
+                    android:text="OptionFour" />
+
+
+            </RelativeLayout>
+
+        </ScrollView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/rl_options"
+            android:layout_centerHorizontal="true"
+            android:background="#ff0000"
+            android:text="Correct"
+            android:textColor="@color/black"
+            android:textSize="20dp" />
+
+        <Button
+            android:id="@+id/btn_next"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:background="@drawable/button_enable_background"
+            android:enabled="false"
+            android:text="Next"
+            android:textColor="@android:color/white" />
+    </RelativeLayout>
+</layout>

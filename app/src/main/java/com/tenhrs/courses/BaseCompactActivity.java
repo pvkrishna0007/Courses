@@ -5,5 +5,5 @@ import android.support.v7.app.ActionBarActivity;
 /**
  * Created by Krishna on 10/25/2016.
  */
-public class BaseCompactActivity extends ActionBarActivity {
+public abstract class BaseCompactActivity extends ActionBarActivity {
 }
