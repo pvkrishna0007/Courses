@@ -9,6 +9,8 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
 import com.tenhrs.courses.R;
+import com.tenhrs.courses.adapter.LanguagesAdapter;
+import com.tenhrs.courses.database.CourseDB;
 import com.tenhrs.courses.databinding.ActivityCoursesListBinding;
 import com.tenhrs.courses.model.Course;
 
@@ -25,25 +27,25 @@ public class HomeScreen extends AppCompatActivity implements View.OnClickListene
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         activityCoursesListBinding = DataBindingUtil.setContentView(this, R.layout.activity_courses_list);
-        activityCoursesListBinding.imgOffice.setOnClickListener(this);
-        activityCoursesListBinding.imgAndroid.setOnClickListener(this);
-        activityCoursesListBinding.imgAngulerjs.setOnClickListener(this);
-        activityCoursesListBinding.imgBigdata.setOnClickListener(this);
-        activityCoursesListBinding.imgHtml.setOnClickListener(this);
-        activityCoursesListBinding.imgIos.setOnClickListener(this);
-        activityCoursesListBinding.imgPmp.setOnClickListener(this);
+//        activityCoursesListBinding.imgOffice.setOnClickListener(this);
+//        activityCoursesListBinding.imgAndroid.setOnClickListener(this);
+//        activityCoursesListBinding.imgAngulerjs.setOnClickListener(this);
+//        activityCoursesListBinding.imgBigdata.setOnClickListener(this);
+//        activityCoursesListBinding.imgHtml.setOnClickListener(this);
+//        activityCoursesListBinding.imgIos.setOnClickListener(this);
+//        activityCoursesListBinding.imgPmp.setOnClickListener(this);
 
 
 
-//        lLayout = new GridLayoutManager(this, 2);
-//
-//        list = (RecyclerView)findViewById(R.id.grid_all_langs);
-//        list.setHasFixedSize(true);
-//        list.setLayoutManager(lLayout);
-//        CourseDB courseDB=new CourseDB(this);
-//        coursesList=courseDB.getCourses(0);
-//        LanguagesAdapter languagesAdapter = new LanguagesAdapter(this,coursesList);
-//        list.setAdapter(languagesAdapter);
+        lLayout = new GridLayoutManager(this, 2);
+
+        list = (RecyclerView)findViewById(R.id.rv_all_courses);
+        list.setHasFixedSize(true);
+        list.setLayoutManager(lLayout);
+        CourseDB courseDB=new CourseDB(this);
+        coursesList=courseDB.getCourses(0);
+        LanguagesAdapter languagesAdapter = new LanguagesAdapter(this,coursesList);
+        list.setAdapter(languagesAdapter);
 
     }
 

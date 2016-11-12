@@ -13,6 +13,7 @@ import android.widget.TextView;
 import com.tenhrs.courses.R;
 import com.tenhrs.courses.model.Course;
 
+import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -24,11 +25,26 @@ public class LanguagesAdapter extends RecyclerView.Adapter<LanguagesAdapter.Lang
 
     private static Context context;
     private List<Course> coursesList;
-
+    private HashMap<Integer,Integer> courseIconMap=new HashMap<>();
     public LanguagesAdapter(Context context, List<Course> coursesList) {
         this.context = context;
         this.coursesList=coursesList;
+        prepareIcons();
     }
+
+    private void prepareIcons() {
+        courseIconMap.put(1,R.drawable.office);
+        courseIconMap.put(2,R.drawable.html);
+        courseIconMap.put(3,R.drawable.bigdata);
+        courseIconMap.put(4,R.drawable.ios);
+        courseIconMap.put(5,R.drawable.ic_anjularjs);
+        courseIconMap.put(6,R.drawable.android);
+        courseIconMap.put(7,R.drawable.pmp);
+        courseIconMap.put(8,R.drawable.pmp);
+
+
+    }
+
 
     @Override
     public LanguagesViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
