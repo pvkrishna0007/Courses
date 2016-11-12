@@ -1,79 +1,59 @@
 package com.tenhrs.courses.database;
 
-import android.database.Cursor;
+import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
 
 import com.tenhrs.courses.common.Constants;
-
-import java.util.ArrayList;
-import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * Created by SIVA on 27-05-2016.
  */
-public class DatabaseHelper {
+public class DatabaseHelper extends SQLiteOpenHelper {
 
     private static DatabaseHelper mInstance = null;
 
-    private SQLiteDatabase mDatabase;
-    private static DatabaseHelper sDataBaseHandler;
-    private AtomicInteger mOpenCounter = new AtomicInteger();
+    private static final String DATABASE_NAME = Constants.DB_NAME;
+    private static final String DATABASE_TABLE = "tableName";
+    private static final int DATABASE_VERSION = 1;
 
+    private Context context;
 
-    public static synchronized DatabaseHelper getInstance() {
-        if (sDataBaseHandler == null) {
-            sDataBaseHandler = new DatabaseHelper();
+    public static DatabaseHelper getInstance(Context ctx) {
+        if (mInstance == null) {
+            mInstance = new DatabaseHelper(ctx.getApplicationContext());
         }
-        return sDataBaseHandler;
+        return mInstance;
     }
 
-    public synchronized SQLiteDatabase openDatabase() {
-        try {
-            if (mOpenCounter.incrementAndGet() == 1) {
-                if (mDatabase == null) {
-                    mDatabase = SQLiteDatabase.openDatabase(Constants.DB_PATH, null, SQLiteDatabase.OPEN_READWRITE | SQLiteDatabase.NO_LOCALIZED_COLLATORS);
-                } else if (!mDatabase.isOpen()) {
-                    mDatabase = SQLiteDatabase.openDatabase(Constants.DB_PATH, null, SQLiteDatabase.OPEN_READWRITE | SQLiteDatabase.NO_LOCALIZED_COLLATORS);
-                }
-            }
-        }catch(Exception e){
-            e.printStackTrace();
-
-
-        }
-        return mDatabase;
+    /**
+     * constructor should be private to prevent direct instantiation.
+     * make call to static factory method "getInstance()" instead.
+     */
+    private DatabaseHelper(Context ctx) {
+        super(ctx, DATABASE_NAME, null, DATABASE_VERSION);
+        this.context = ctx;
     }
 
-    public synchronized void closeDatabase() {
-        if (mOpenCounter.decrementAndGet() == 0) {
-            if (mDatabase != null) {
-                mDatabase.close();
-            }
-        }
+    // Creating Tables
+    @Override
+    public void onCreate(SQLiteDatabase db) {
+        db.execSQL("CREATE TABLE \"Courses\" (\"CourseID\" INTEGER PRIMARY KEY  NOT NULL ,\"CourseName\" TEXT, \"isActive\" INTEGER)");
+
     }
 
-    public ArrayList<String> pragmainfo(String tablename) {
-        ArrayList<String> pragma = new ArrayList<String>();
-        openDatabase();
-        String pragmaquery = "pragma table_info(" + tablename + ")";
-        Cursor mCursor = mDatabase.rawQuery(pragmaquery, null);
-        try {
+    // Upgrading database
+    @Override
+    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+        // Drop older table if existed
+//        db.execSQL("DROP TABLE IF EXISTS " + QUESTIONS);
 
-            if (mCursor.moveToFirst()) {
-                do {
-                    pragma.add(mCursor.getString(1));
+        // Create tables again
+//        onCreate(db);
+    }
 
-                } while (mCursor.moveToNext());
-            }
+    public void insertCoursesData() {
 
-        } catch (Exception e) {
-        }
-        finally
-        {
-            closeDatabase();
-        }
-
-        return pragma;
     }
 
 }

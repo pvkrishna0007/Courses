@@ -6,7 +6,7 @@ import android.support.annotation.Nullable;
 import android.view.View;
 import android.widget.ImageView;
 
-
+import com.tenhrs.courses.BaseCompactActivity;
 import com.tenhrs.courses.R;
 import com.tenhrs.courses.databinding.FragmentOptionsBinding;
 

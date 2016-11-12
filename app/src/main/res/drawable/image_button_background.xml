@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <level-list xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:drawable="@drawable/green"
+        android:drawable="@drawable/option_active"
         android:maxLevel="1"
         android:minLevel="1"></item>
     <item
-        android:drawable="@drawable/blue"
+        android:drawable="@drawable/option_inactive"
         android:maxLevel="2"
         android:minLevel="2"></item>
     <item
-        android:drawable="@drawable/grey"
+        android:drawable="@drawable/option_default"
         android:maxLevel="0"
         android:minLevel="0"></item>
 
