@@ -37,6 +37,7 @@
             android:name=".activity.SelectedCoursesActivity"
             android:label="@string/title_activity_selected_courses"
             android:theme="@style/AppTheme"></activity>
+
         <activity
             android:name=".activity.OptionsActivity"
             android:label="@string/title_activity_selected_courses"
