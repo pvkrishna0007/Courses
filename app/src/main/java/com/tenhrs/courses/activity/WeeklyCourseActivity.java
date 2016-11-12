@@ -11,7 +11,7 @@ import com.tenhrs.courses.databinding.ActivityWeeklyCoursesNewBinding;
 /**
  * Created by Krishna on 10/25/2016.
  */
-public class WeeklyCourseActivity extends BaseCompactActivity implements View.OnFocusChangeListener {
+public class WeeklyCourseActivity extends BaseCompactActivity implements View.OnClickListener {
 
     private ActivityWeeklyCoursesNewBinding activityCoursesBinding;
 
@@ -21,7 +21,7 @@ public class WeeklyCourseActivity extends BaseCompactActivity implements View.On
         super.onCreate(savedInstanceState);
 
         activityCoursesBinding = DataBindingUtil.setContentView(this, R.layout.activity_weekly_courses_new);
-        activityCoursesBinding.cbFlashcards.setOnFocusChangeListener(this);
+        activityCoursesBinding.cbFlashcards.setOnClickListener(this);
 //        init();   //vvvvvbbb
     }
 
@@ -29,15 +29,17 @@ public class WeeklyCourseActivity extends BaseCompactActivity implements View.On
 
     }
 
+
+    private void launchOptionsActivity(){
+        startActivity(new Intent(this,OptionsActivity.class));
+    }
+
     @Override
-    public void onFocusChange(View v, boolean hasFocus) {
+    public void onClick(View v) {
         switch (v.getId()) {
             case R.id.cb_flashcards:
                 launchOptionsActivity();
                 break;
         }
-    }
-    private void launchOptionsActivity(){
-        startActivity(new Intent(this,OptionsActivity.class));
     }
 }
