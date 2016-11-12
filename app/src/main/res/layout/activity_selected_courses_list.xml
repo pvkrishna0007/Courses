@@ -32,33 +32,24 @@
             android:layout_weight="1">
 
             <ImageView
-                android:id="@+id/img_office"
+                android:id="@+id/img_office_selected"
                 android:layout_width="@dimen/course_img_width"
                 android:layout_height="@dimen/course_img_height"
-                android:src="@drawable/msoffice"
+                android:src="@drawable/office_selected"
 
                 style="@style/imageviewStyle"
                  />
-            <!--<CheckBox android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:button="@drawable/languages_selector"
-                android:layout_alignParentRight="true"
-                android:layout_alignParentTop="true"
-               android:layout_marginRight="48dp"
-                android:layout_marginTop="10dp">
-            </CheckBox>-->
 
             <TextView
-                android:id="@+id/tv_office"
+                android:id="@+id/tv_office_selected"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/img_office"
+                android:layout_below="@+id/img_office_selected"
                 android:text="Office"
                style="@style/textViewStyle"
                 android:layout_centerInParent="true"
 
                 />
-
 
         </RelativeLayout>
         <RelativeLayout
@@ -67,17 +58,17 @@
             android:layout_weight="1">
 
             <ImageView
-                android:id="@+id/img_html"
+                android:id="@+id/img_html_selected"
                 android:layout_width="@dimen/course_img_width"
                 android:layout_height="@dimen/course_img_height"
-                android:src="@drawable/html_selector"
+                android:src="@drawable/html_css_js_selected"
                 style="@style/imageviewStyle"/>
 
             <TextView
-                android:id="@+id/tv_html"
+                android:id="@+id/tv_html_selected"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/img_html"
+                android:layout_below="@+id/img_html_selected"
                 android:text="Html"
                 style="@style/textViewStyle"
                 android:layout_centerInParent="true"
@@ -99,17 +90,17 @@
             android:layout_weight="1">
 
             <ImageView
-                android:id="@+id/img_bigdata"
+                android:id="@+id/img_bigdata_selected"
                 android:layout_width="@dimen/course_img_width"
                 android:layout_height="@dimen/course_img_height"
-                android:src="@drawable/bigdata_selector"
+                android:src="@drawable/bigdata_selected"
                 style="@style/imageviewStyle" />
 
             <TextView
-                android:id="@+id/tv_bigdata"
+                android:id="@+id/tv_bigdata_selected"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/img_bigdata"
+                android:layout_below="@+id/img_bigdata_selected"
                 android:text="Big Data"
                 style="@style/textViewStyle"
                 android:gravity="center"
@@ -126,17 +117,17 @@
             android:layout_weight="1">
 
             <ImageView
-                android:id="@+id/img_ios"
+                android:id="@+id/img_ios_selected"
                 android:layout_width="@dimen/course_img_width"
                 android:layout_height="@dimen/course_img_height"
-                android:src="@drawable/ios_selecter"
+                android:src="@drawable/ios_selected"
                 style="@style/imageviewStyle"/>
 
             <TextView
-                android:id="@+id/tv_ios"
+                android:id="@+id/tv_ios_selected"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/img_ios"
+                android:layout_below="@+id/img_ios_selected"
                 android:text="ios"
                 style="@style/textViewStyle"
                 android:layout_centerInParent="true"
@@ -156,17 +147,17 @@
             android:layout_weight="1">
 
             <ImageView
-                android:id="@+id/img_angulerjs"
+                android:id="@+id/img_angulerjs_selected"
                 android:layout_width="@dimen/course_img_width"
                 android:layout_height="@dimen/course_img_height"
-                android:src="@drawable/angulerjs_selector"
+                android:src="@drawable/ic_anjularjs"
                 style="@style/imageviewStyle" />
 
             <TextView
-                android:id="@+id/tv_angulerjs"
+                android:id="@+id/tv_angulerjs_selected"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/img_angulerjs"
+                android:layout_below="@+id/img_angulerjs_selected"
                 android:text="AngulerJS"
                 style="@style/textViewStyle"
                 android:layout_centerInParent="true"
@@ -182,17 +173,17 @@
             android:layout_weight="1">
 
             <ImageView
-                android:id="@+id/img_android"
+                android:id="@+id/img_android_selected"
                 android:layout_width="@dimen/course_img_width"
                 android:layout_height="@dimen/course_img_height"
-                android:src="@drawable/ic_android_color"
+                android:src="@drawable/android_selected"
                 style="@style/imageviewStyle" />
 
             <TextView
-                android:id="@+id/tv_android"
+                android:id="@+id/tv_android_selected"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/img_android"
+                android:layout_below="@+id/img_android_selected"
                 android:text="Android"
                 style="@style/textViewStyle"
                 android:layout_centerInParent="true"
@@ -214,23 +205,47 @@
             android:layout_weight="1">
 
             <ImageView
-                android:id="@+id/img_pmp"
+                android:id="@+id/img_pmp_selected"
                 android:layout_width="@dimen/course_img_width"
                 android:layout_height="@dimen/course_img_height"
-                android:src="@drawable/pmp_selector"
+                android:src="@drawable/pmp_selected"
                 style="@style/imageviewStyle" />
 
             <TextView
-                android:id="@+id/tv_pmp"
+                android:id="@+id/tv_pmp_selected"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/img_pmp"
+                android:layout_below="@+id/img_pmp_selected"
                 android:text="pmp"
                 style="@style/textViewStyle"
                 android:layout_centerInParent="true"
 
                 />
         </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <ImageView
+                    android:id="@+id/img_addcourse_selected"
+                    android:layout_width="@dimen/course_img_width"
+                    android:layout_height="@dimen/course_img_height"
+                    android:src="@drawable/add_course"
+                    style="@style/imageviewStyle" />
+
+                <TextView
+                    android:id="@+id/tv_addcourse_selected"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/img_addcourse_selected"
+                    android:text="Add Course"
+                    style="@style/textViewStyle"
+                    android:layout_centerInParent="true"
+
+                    />
+            </RelativeLayout>
+
             </LinearLayout>
         </LinearLayout>
         </ScrollView>

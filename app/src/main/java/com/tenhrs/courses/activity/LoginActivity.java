@@ -1,9 +1,9 @@
 package com.tenhrs.courses.activity;
 
+import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.view.Menu;
-import android.view.MenuItem;
 
 import com.tenhrs.courses.R;
 import com.tenhrs.courses.databinding.ActivityLoginBinding;
@@ -18,6 +18,7 @@ public class LoginActivity extends BaseCompactActivity {
         super.onCreate(savedInstanceState);
 
         activityLoginBinding = DataBindingUtil.setContentView(this, R.layout.activity_login);
+        startActivity(new Intent(this,SelectedCoursesActivity.class));
 
 
 
@@ -30,18 +31,5 @@ public class LoginActivity extends BaseCompactActivity {
         return true;
     }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
 }

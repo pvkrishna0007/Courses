@@ -9,5 +9,6 @@
     <dimen name="option_width">125dp</dimen>
     <dimen name="option_height">125dp</dimen>
     <dimen name="option_margin">10dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
 
 </resources>
