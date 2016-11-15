@@ -2,14 +2,16 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.tenhrs.courses">
 
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme">
-
         <activity
-            android:name=".activity.FlashOptionsActivity"
+            android:name=".activity.LoginActivity"
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -17,9 +19,39 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".activity.HomeScreen">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
-        <activity android:name=".activity.OptionsActivity" />
-        <activity android:name=".WeeklyCourseActivity" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".activity.WeeklyCourseActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activity.SelectedCoursesActivity"
+            android:label="@string/title_activity_selected_courses"
+            android:theme="@style/AppTheme"></activity>
+
+        <activity
+            android:name=".activity.OptionsActivity"
+            android:label="@string/title_activity_selected_courses"
+            android:theme="@style/AppTheme"></activity>
+        <activity
+            android:name=".activity.ResultStatusActivity"
+            android:label="@string/title_activity_selected_courses"
+            android:theme="@style/AppTheme"></activity>
+        <activity
+            android:name=".activity.FlashOptionsActivity"
+            android:label="@string/title_activity_selected_courses"
+            android:theme="@style/AppTheme"></activity>
+
+
     </application>
 
 </manifest>

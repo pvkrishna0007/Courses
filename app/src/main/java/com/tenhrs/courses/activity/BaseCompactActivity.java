@@ -1,4 +1,4 @@
-package com.tenhrs.courses;
+package com.tenhrs.courses.activity;
 
 import android.support.v7.app.ActionBarActivity;
 

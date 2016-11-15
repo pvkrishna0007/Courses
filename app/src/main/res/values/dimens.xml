@@ -3,12 +3,14 @@
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="dp_10">10dp</dimen>
+    <dimen name="course_img_width">94dp</dimen>
+    <dimen name="course_img_height">94dp</dimen>
 
     <dimen name="option_width">125dp</dimen>
     <dimen name="option_height">125dp</dimen>
     <dimen name="option_margin">10dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="option_drawable_width">8dp</dimen>
 
-
-    <dimen name="option_drawable_width">5dp</dimen>
 
 </resources>

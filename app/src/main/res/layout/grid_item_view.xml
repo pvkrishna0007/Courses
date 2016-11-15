@@ -13,32 +13,23 @@
         android:layout_height="match_parent">
 
         <ImageView
-            android:id="@+id/img_lang_icon"
-            android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:src="@android:drawable/ic_dialog_email"
-            android:foregroundGravity="center"
-            android:scaleType="centerCrop" />
+            android:id="@+id/img_office"
+            android:layout_width="@dimen/course_img_width"
+            android:layout_height="@dimen/course_img_height"
+            android:src="@drawable/msoffice"
+
+            style="@style/imageviewStyle"
+            />
 
         <TextView
-            android:id="@+id/tv_lang_name"
+            android:id="@+id/tv_office"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/img_lang_icon"
-            android:text="language"
-            android:paddingBottom="2dp"
-            android:paddingTop="2dp"
-            android:gravity="center"
+            android:layout_below="@+id/img_office"
+            android:text="Office"
+            style="@style/textViewStyle"
             android:layout_centerInParent="true"
 
-             />
-
-        <android.support.v7.widget.AppCompatCheckBox
-            android:id="@+id/cb_lang_slection"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentTop="true"
             />
 
     </RelativeLayout>

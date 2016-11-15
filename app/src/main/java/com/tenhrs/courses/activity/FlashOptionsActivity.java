@@ -8,7 +8,7 @@ import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.view.View;
 
-import com.tenhrs.courses.BaseCompactActivity;
+
 import com.tenhrs.courses.R;
 import com.tenhrs.courses.databinding.FragmentFlashCardsOptionsBinding;
 

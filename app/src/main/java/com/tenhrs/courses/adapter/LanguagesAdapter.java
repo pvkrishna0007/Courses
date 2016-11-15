@@ -13,6 +13,7 @@ import android.widget.TextView;
 import com.tenhrs.courses.R;
 import com.tenhrs.courses.model.Course;
 
+import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -24,10 +25,24 @@ public class LanguagesAdapter extends RecyclerView.Adapter<LanguagesAdapter.Lang
 
     private static Context context;
     private List<Course> coursesList;
+    private HashMap<Integer,Integer> drawablesMap=new HashMap<>();
 
     public LanguagesAdapter(Context context, List<Course> coursesList) {
         this.context = context;
         this.coursesList=coursesList;
+        prepareDrawablesData();
+    }
+
+    private void prepareDrawablesData() {
+        drawablesMap.put(1,R.drawable.msoffice);
+        drawablesMap.put(2,R.drawable.html_selector);
+        drawablesMap.put(3,R.drawable.bigdata_selector);
+        drawablesMap.put(4,R.drawable.ios_selecter);
+        drawablesMap.put(5,R.drawable.angulerjs_selector);
+        drawablesMap.put(6,R.drawable.android_selector);
+        drawablesMap.put(7,R.drawable.pmp_selector);
+        drawablesMap.put(8,R.drawable.add_course);
+
     }
 
     @Override
@@ -40,12 +55,12 @@ public class LanguagesAdapter extends RecyclerView.Adapter<LanguagesAdapter.Lang
 
     @Override
     public void onBindViewHolder(LanguagesViewHolder holder, int position) {
-
-        holder.tvlangName.setText(coursesList.get(position).getCourseName());
+        Course course = coursesList.get(position);
+        holder.tvlangName.setText(course.getCourseName());
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            holder.imgLangIcon.setImageDrawable(context.getResources().getDrawable(android.R.drawable.ic_dialog_email));
+            holder.imgLangIcon.setImageDrawable(context.getResources().getDrawable(drawablesMap.get(course.getCourseID())));
         } else {
-            holder.imgLangIcon.setImageDrawable(context.getResources().getDrawable(android.R.drawable.ic_dialog_email));
+            holder.imgLangIcon.setImageDrawable(context.getResources().getDrawable(drawablesMap.get(course.getCourseID())));
         }
 
     }
@@ -63,9 +78,9 @@ public class LanguagesAdapter extends RecyclerView.Adapter<LanguagesAdapter.Lang
         public LanguagesViewHolder(View itemView) {
             super(itemView);
 
-            tvlangName = (TextView) itemView.findViewById(R.id.tv_lang_name);
-            imgLangIcon = (ImageView) itemView.findViewById(R.id.img_lang_icon);
-            checkBox = (CheckBox) itemView.findViewById(R.id.cb_lang_slection);
+            tvlangName = (TextView) itemView.findViewById(R.id.tv_office);
+            imgLangIcon = (ImageView) itemView.findViewById(R.id.img_office);
+//            checkBox = (CheckBox) itemView.findViewById(R.id.cb_lang_slection);
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override

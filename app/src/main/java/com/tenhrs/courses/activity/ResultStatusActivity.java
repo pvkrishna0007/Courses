@@ -4,7 +4,8 @@ import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 
-import com.tenhrs.courses.BaseCompactActivity;
+
+
 import com.tenhrs.courses.R;
 import com.tenhrs.courses.databinding.ActivityResultStatusBinding;
 

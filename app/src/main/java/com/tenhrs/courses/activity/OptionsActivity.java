@@ -1,12 +1,13 @@
 package com.tenhrs.courses.activity;
 
+import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.View;
 import android.widget.ImageView;
 
-import com.tenhrs.courses.BaseCompactActivity;
+
 import com.tenhrs.courses.R;
 import com.tenhrs.courses.databinding.FragmentOptionsBinding;
 
@@ -31,6 +32,7 @@ public class OptionsActivity extends BaseCompactActivity implements View.OnClick
         binding.ivOptionTwo.setOnClickListener(this);
         binding.ivOptionThree.setOnClickListener(this);
         binding.ivOptionFour.setOnClickListener(this);
+        binding.btnNext.setOnClickListener(this);
     }
 
     private void setOption(int position) {
@@ -66,6 +68,9 @@ public class OptionsActivity extends BaseCompactActivity implements View.OnClick
 
             case R.id.ivOptionFour:
                 setOption(3);
+                break;
+            case R.id.btn_next:
+                startActivity(new Intent(this,ResultStatusActivity.class));
                 break;
         }
     }

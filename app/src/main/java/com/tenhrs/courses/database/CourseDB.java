@@ -21,7 +21,7 @@ public class CourseDB {
     }
 
     public List<Course> getCourses(int isActive){
-        databaseHelper = DatabaseHelper.getInstance(context);
+        databaseHelper = DatabaseHelper.getInstance();
         List<Course> courseList=new ArrayList<Course>();
         StringBuilder stringBuilder=new StringBuilder();
         stringBuilder.append("select * from Courses");
@@ -29,7 +29,7 @@ public class CourseDB {
             stringBuilder.append(" where isActive= "+isActive);
         }
         String qry=stringBuilder.toString();
-        SQLiteDatabase database = databaseHelper.getWritableDatabase();
+        SQLiteDatabase database = databaseHelper.openDatabase();
         Cursor cursor = database.rawQuery(qry,null);
         if(cursor!=null&&cursor.moveToFirst()){
             do{
@@ -42,7 +42,7 @@ public class CourseDB {
             if(cursor!=null){
                 cursor.close();;
             }
-            database.close();
+            databaseHelper.closeDatabase();
         }
         return courseList;
     }

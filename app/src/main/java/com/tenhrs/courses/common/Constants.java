@@ -11,3 +11,4 @@ public class Constants {
             ".sqlite";
     public static final String DB_PATH = Environment.getExternalStorageDirectory().getPath() + "/CoursesDB/Database" + "/" + DB_NAME;
 }
+
