@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        >
+        <include
+            android:id="@+id/toolbar_include"
+            layout="@layout/layout_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="2">
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <ImageView
+                android:id="@+id/img_office_selected"
+                android:layout_width="@dimen/course_img_width"
+                android:layout_height="@dimen/course_img_height"
+                android:src="@drawable/office_selected"
+
+                style="@style/imageviewStyle"
+                 />
+
+            <TextView
+                android:id="@+id/tv_office_selected"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/img_office_selected"
+                android:text="Office"
+               style="@style/textViewStyle"
+                android:layout_centerInParent="true"
+
+                />
+
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <ImageView
+                android:id="@+id/img_html_selected"
+                android:layout_width="@dimen/course_img_width"
+                android:layout_height="@dimen/course_img_height"
+                android:src="@drawable/html_css_js_selected"
+                style="@style/imageviewStyle"/>
+
+            <TextView
+                android:id="@+id/tv_html_selected"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/img_html_selected"
+                android:text="Html"
+                style="@style/textViewStyle"
+                android:layout_centerInParent="true"
+
+                />
+
+
+
+        </RelativeLayout>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="2">
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <ImageView
+                android:id="@+id/img_bigdata_selected"
+                android:layout_width="@dimen/course_img_width"
+                android:layout_height="@dimen/course_img_height"
+                android:src="@drawable/bigdata_selected"
+                style="@style/imageviewStyle" />
+
+            <TextView
+                android:id="@+id/tv_bigdata_selected"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/img_bigdata_selected"
+                android:text="Big Data"
+                style="@style/textViewStyle"
+                android:gravity="center"
+                android:layout_centerInParent="true"
+
+                />
+
+
+
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <ImageView
+                android:id="@+id/img_ios_selected"
+                android:layout_width="@dimen/course_img_width"
+                android:layout_height="@dimen/course_img_height"
+                android:src="@drawable/ios_selected"
+                style="@style/imageviewStyle"/>
+
+            <TextView
+                android:id="@+id/tv_ios_selected"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/img_ios_selected"
+                android:text="ios"
+                style="@style/textViewStyle"
+                android:layout_centerInParent="true"
+
+                />
+
+        </RelativeLayout>
+            </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="2">
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <ImageView
+                android:id="@+id/img_angulerjs_selected"
+                android:layout_width="@dimen/course_img_width"
+                android:layout_height="@dimen/course_img_height"
+                android:src="@drawable/ic_anjularjs"
+                style="@style/imageviewStyle" />
+
+            <TextView
+                android:id="@+id/tv_angulerjs_selected"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/img_angulerjs_selected"
+                android:text="AngulerJS"
+                style="@style/textViewStyle"
+                android:layout_centerInParent="true"
+
+                />
+
+
+
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <ImageView
+                android:id="@+id/img_android_selected"
+                android:layout_width="@dimen/course_img_width"
+                android:layout_height="@dimen/course_img_height"
+                android:src="@drawable/android_selected"
+                style="@style/imageviewStyle" />
+
+            <TextView
+                android:id="@+id/tv_android_selected"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/img_android_selected"
+                android:text="Android"
+                style="@style/textViewStyle"
+                android:layout_centerInParent="true"
+
+                />
+
+
+
+        </RelativeLayout>
+            </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="2">
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <ImageView
+                android:id="@+id/img_pmp_selected"
+                android:layout_width="@dimen/course_img_width"
+                android:layout_height="@dimen/course_img_height"
+                android:src="@drawable/pmp_selected"
+                style="@style/imageviewStyle" />
+
+            <TextView
+                android:id="@+id/tv_pmp_selected"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/img_pmp_selected"
+                android:text="pmp"
+                style="@style/textViewStyle"
+                android:layout_centerInParent="true"
+
+                />
+        </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <ImageView
+                    android:id="@+id/img_addcourse_selected"
+                    android:layout_width="@dimen/course_img_width"
+                    android:layout_height="@dimen/course_img_height"
+                    android:src="@drawable/add_course"
+                    style="@style/imageviewStyle" />
+
+                <TextView
+                    android:id="@+id/tv_addcourse_selected"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/img_addcourse_selected"
+                    android:text="Add Course"
+                    style="@style/textViewStyle"
+                    android:layout_centerInParent="true"
+
+                    />
+            </RelativeLayout>
+
+            </LinearLayout>
+        </LinearLayout>
+        </ScrollView>
+
+    </LinearLayout>
+
+
+
+</layout>
