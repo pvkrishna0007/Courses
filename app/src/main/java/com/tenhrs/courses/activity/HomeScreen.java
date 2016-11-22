@@ -28,20 +28,8 @@ public class HomeScreen extends AppCompatActivity implements View.OnClickListene
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-//        activityCoursesListBinding = DataBindingUtil.setContentView(this, R.layout.activity_home_screan);
          homeScreanBinding=DataBindingUtil.setContentView(this, R.layout.activity_home_screan);
-//        activityCoursesListBinding.imgOffice.setOnClickListener(this);
-//        activityCoursesListBinding.imgAndroid.setOnClickListener(this);
-//        activityCoursesListBinding.imgAngulerjs.setOnClickListener(this);
-//        activityCoursesListBinding.imgBigdata.setOnClickListener(this);
-//        activityCoursesListBinding.imgHtml.setOnClickListener(this);
-//        activityCoursesListBinding.imgIos.setOnClickListener(this);
-//        activityCoursesListBinding.imgPmp.setOnClickListener(this);
-
-
-
         lLayout = new GridLayoutManager(this, 2);
-
         list = (RecyclerView)homeScreanBinding.rvAllCourses;
         list.setHasFixedSize(true);
         list.setLayoutManager(lLayout);
@@ -55,30 +43,7 @@ public class HomeScreen extends AppCompatActivity implements View.OnClickListene
 
     @Override
     public void onClick(View v) {
-//        switch (v.getId()){
-//            case R.id.img_office:
-//                launchWeeklyActivity();
-//            break;
-//            case R.id.img_html:
-//                launchWeeklyActivity();
-//                break;
-//            case R.id.img_bigdata:
-//                launchWeeklyActivity();
-//                break;
-//            case R.id.img_ios:
-//                launchWeeklyActivity();
-//                break;
-//            case R.id.img_angulerjs:
-//                launchWeeklyActivity();
-//                break;
-//            case R.id.img_android:
-//                launchWeeklyActivity();
-//                break;
-//            case R.id.img_pmp:
-//                launchWeeklyActivity();
 //
-//                break;
-//        }
 
     }
     private void launchWeeklyActivity(){

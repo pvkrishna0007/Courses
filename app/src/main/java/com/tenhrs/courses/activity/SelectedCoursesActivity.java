@@ -4,59 +4,47 @@ import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
 import com.tenhrs.courses.R;
+import com.tenhrs.courses.adapter.SelectedLanguagesListAdapter;
+import com.tenhrs.courses.database.CourseDB;
+import com.tenhrs.courses.databinding.ActivityCoursesListBinding;
+import com.tenhrs.courses.databinding.ActivityHomeScreanBinding;
+import com.tenhrs.courses.model.Course;
+
+import java.util.List;
 
 public class SelectedCoursesActivity extends AppCompatActivity implements View.OnClickListener
 {
+    private RecyclerView list;
+    private GridLayoutManager lLayout;
+    private List<Course> coursesList=null;
+    private ActivityCoursesListBinding activityCoursesListBinding;
+    private ActivityHomeScreanBinding homeScreanBinding;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-         com.tenhrs.courses.databinding.ActivitySelectedCoursesListBinding coursesListBinding= DataBindingUtil.setContentView(this, R.layout.activity_selected_courses_list);
-        coursesListBinding.imgAddcourseSelected.setOnClickListener(this);
-        coursesListBinding.imgAndroidSelected.setOnClickListener(this);
-        coursesListBinding.imgAngulerjsSelected.setOnClickListener(this);
-        coursesListBinding.imgBigdataSelected.setOnClickListener(this);
-        coursesListBinding.imgHtmlSelected.setOnClickListener(this);
-        coursesListBinding.imgIosSelected.setOnClickListener(this);
-        coursesListBinding.imgOfficeSelected.setOnClickListener(this);
-        coursesListBinding.imgPmpSelected.setOnClickListener(this);
+        homeScreanBinding= DataBindingUtil.setContentView(this, R.layout.activity_home_screan);
+        lLayout = new GridLayoutManager(this, 2);
+        list = (RecyclerView)homeScreanBinding.rvAllCourses;
+        list.setHasFixedSize(true);
+        list.setLayoutManager(lLayout);
+        CourseDB courseDB=new CourseDB(this);
+        coursesList=courseDB.getCourses(1);
+        SelectedLanguagesListAdapter languagesListAdapter= new SelectedLanguagesListAdapter(this,coursesList);
+        list.setAdapter(languagesListAdapter);
 
     }
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.img_office_selected:
-                launchWeeklyActivity();
-                break;
-            case R.id.img_html_selected:
-                launchWeeklyActivity();
-                break;
-            case R.id.img_bigdata_selected:
-                launchWeeklyActivity();
-                break;
-            case R.id.img_ios_selected:
-                launchWeeklyActivity();
-                break;
-            case R.id.img_angulerjs_selected:
-                launchWeeklyActivity();
-                break;
-            case R.id.img_android_selected:
-                launchWeeklyActivity();
-                break;
-            case R.id.img_pmp_selected:
-                launchWeeklyActivity();
 
-                break;
-            case R.id.img_addcourse_selected:
-                startActivity(new Intent(this,HomeScreen.class));
 
-                break;
-        }
     }
     private void launchWeeklyActivity(){
         startActivity(new Intent(this,WeeklyCourseActivity.class));

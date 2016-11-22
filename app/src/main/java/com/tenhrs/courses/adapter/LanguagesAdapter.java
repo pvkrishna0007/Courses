@@ -11,6 +11,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.tenhrs.courses.R;
+import com.tenhrs.courses.database.CourseDB;
 import com.tenhrs.courses.model.Course;
 
 import java.util.HashMap;
@@ -25,23 +26,36 @@ public class LanguagesAdapter extends RecyclerView.Adapter<LanguagesAdapter.Lang
 
     private static Context context;
     private List<Course> coursesList;
-    private HashMap<Integer,Integer> drawablesMap=new HashMap<>();
+    private HashMap<Integer,Integer> focusdrawablesMap=new HashMap<>();
+    private HashMap<Integer,Integer> nonFocusdrawablesMap=new HashMap<>();
+    CourseDB courseDB;
 
     public LanguagesAdapter(Context context, List<Course> coursesList) {
         this.context = context;
         this.coursesList=coursesList;
         prepareDrawablesData();
+        courseDB=new CourseDB(context);
     }
 
     private void prepareDrawablesData() {
-        drawablesMap.put(1,R.drawable.msoffice);
-        drawablesMap.put(2,R.drawable.html_selector);
-        drawablesMap.put(3,R.drawable.bigdata_selector);
-        drawablesMap.put(4,R.drawable.ios_selecter);
-        drawablesMap.put(5,R.drawable.angulerjs_selector);
-        drawablesMap.put(6,R.drawable.android_selector);
-        drawablesMap.put(7,R.drawable.pmp_selector);
-        drawablesMap.put(8,R.drawable.add_course);
+        focusdrawablesMap.put(1,R.drawable.office_focus);
+        focusdrawablesMap.put(2,R.drawable.html_focus);
+        focusdrawablesMap.put(3,R.drawable.bigdata_focus);
+        focusdrawablesMap.put(4,R.drawable.ios_focus);
+        focusdrawablesMap.put(5,R.drawable.anjularjs);
+        focusdrawablesMap.put(6,R.drawable.android_focus);
+        focusdrawablesMap.put(7,R.drawable.pmp_focus);
+        focusdrawablesMap.put(8,R.drawable.add_course);
+
+        //non focus
+        nonFocusdrawablesMap.put(1,R.drawable.office);
+        nonFocusdrawablesMap.put(2,R.drawable.html);
+        nonFocusdrawablesMap.put(3,R.drawable.bigdata);
+        nonFocusdrawablesMap.put(4,R.drawable.ios);
+        nonFocusdrawablesMap.put(5,R.drawable.anjularjs);
+        nonFocusdrawablesMap.put(6,R.drawable.android);
+        nonFocusdrawablesMap.put(7,R.drawable.pmp);
+        nonFocusdrawablesMap.put(8,R.drawable.add_course);
 
     }
 
@@ -54,20 +68,42 @@ public class LanguagesAdapter extends RecyclerView.Adapter<LanguagesAdapter.Lang
     }
 
     @Override
-    public void onBindViewHolder(LanguagesViewHolder holder, int position) {
-        Course course = coursesList.get(position);
+    public void onBindViewHolder(LanguagesViewHolder holder, final int position) {
+        final Course course = coursesList.get(position);
         holder.tvlangName.setText(course.getCourseName());
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            holder.imgLangIcon.setImageDrawable(context.getResources().getDrawable(drawablesMap.get(course.getCourseID())));
-        } else {
-            holder.imgLangIcon.setImageDrawable(context.getResources().getDrawable(drawablesMap.get(course.getCourseID())));
+        int drawableID;
+        if(course.getIsActive()==1){
+            drawableID=focusdrawablesMap.get(course.getCourseID());
+        }else{
+            drawableID=nonFocusdrawablesMap.get(course.getCourseID());
         }
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            holder.imgLangIcon.setImageDrawable(context.getResources().getDrawable(drawableID));
+        } else {
+            holder.imgLangIcon.setImageDrawable(context.getResources().getDrawable(drawableID));
+        }
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(course.getIsActive()==1){
+                    courseDB.updateCourse(course.getCourseID(),0);
+                    course.setIsActive(0);
+                }else{
+                    courseDB.updateCourse(course.getCourseID(),1);
+                    course.setIsActive(1);
+                }
+                notifyDataSetChanged();
+
+
+            }
+        });
+
 
     }
 
     @Override
     public int getItemCount() {
-        return coursesList.size();
+        return coursesList.size()-1;
     }
 
     public static class LanguagesViewHolder extends RecyclerView.ViewHolder {
@@ -82,13 +118,6 @@ public class LanguagesAdapter extends RecyclerView.Adapter<LanguagesAdapter.Lang
             imgLangIcon = (ImageView) itemView.findViewById(R.id.img_office);
 //            checkBox = (CheckBox) itemView.findViewById(R.id.cb_lang_slection);
 
-            itemView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-
-                }
-
-            });
         }
     }
 }

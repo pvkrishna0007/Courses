@@ -9,6 +9,7 @@
     android:layout_marginBottom="16dp">
 
     <RelativeLayout
+        android:id="@+id/rlCourses"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -17,7 +18,6 @@
             android:layout_width="@dimen/course_img_width"
             android:layout_height="@dimen/course_img_height"
             android:src="@drawable/msoffice"
-
             style="@style/imageviewStyle"
             />
 

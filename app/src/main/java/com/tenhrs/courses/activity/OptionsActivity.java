@@ -9,6 +9,7 @@ import android.widget.ImageView;
 
 
 import com.tenhrs.courses.R;
+import com.tenhrs.courses.database.CourseDB;
 import com.tenhrs.courses.databinding.FragmentOptionsBinding;
 
 /**
@@ -33,6 +34,14 @@ public class OptionsActivity extends BaseCompactActivity implements View.OnClick
         binding.ivOptionThree.setOnClickListener(this);
         binding.ivOptionFour.setOnClickListener(this);
         binding.btnNext.setOnClickListener(this);
+
+        Bundle extras = getIntent().getExtras();
+        if(extras !=null) {
+            int weekId = extras.getInt("");
+            int courseId = extras.getInt("");
+            CourseDB courseDB = new CourseDB(this);
+            courseDB.getQuizQuestions(weekId, courseId);
+        }
     }
 
     private void setOption(int position) {
