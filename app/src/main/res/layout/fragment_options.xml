@@ -56,7 +56,7 @@
             android:id="@+id/svOptions"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_above="@+id/btn_next"
+            android:layout_above="@+id/llControls"
             android:layout_below="@+id/tvQuestion"
             android:layout_marginBottom="5dp"
             android:layout_marginTop="5dp">
@@ -164,14 +164,34 @@
             android:textColor="@color/white"
             android:textSize="20dp" />
 
-        <Button
-            android:id="@+id/btn_next"
+        <LinearLayout
+            android:id="@+id/llControls"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
-            android:background="@drawable/button_enable_background"
-            android:enabled="false"
-            android:text="Next"
-            android:textColor="@android:color/white" />
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btn_next"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/button_enable_background"
+                android:enabled="false"
+                android:text="Next"
+                android:textColor="@android:color/white" />
+
+            <Button
+                android:id="@+id/btn_submit"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_weight="1"
+                android:visibility="gone"
+                android:background="@drawable/button_enable_background"
+                android:enabled="false"
+                android:text="Submit"
+                android:textColor="@android:color/white" />
+        </LinearLayout>
     </RelativeLayout>
 </layout>
