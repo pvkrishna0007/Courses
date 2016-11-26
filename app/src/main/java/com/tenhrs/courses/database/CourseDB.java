@@ -14,7 +14,7 @@ import java.util.List;
 /**
  * Created by SIVA on 06-10-2016.
  */
-public class CourseDB {
+public class CourseDB implements DbTable {
     private Context context;
     private DatabaseHelper databaseHelper;
 
@@ -24,11 +24,11 @@ public class CourseDB {
 
     public List<Course> getCourses(int isActive){
         databaseHelper = DatabaseHelper.getInstance();
-        List<Course> courseList=new ArrayList<Course>();
+        List<Course> courseList = new ArrayList<>();
         StringBuilder stringBuilder=new StringBuilder();
-        stringBuilder.append("select * from Courses");
+        stringBuilder.append("select * from " + TABLE_COURSE);
         if(isActive==1){
-            stringBuilder.append(" where isActive= "+isActive);
+            stringBuilder.append(" where " + COURSE_IS_ACTIVE + " = " + isActive);
         }
         String qry=stringBuilder.toString();
         SQLiteDatabase database = databaseHelper.openDatabase();
@@ -36,9 +36,9 @@ public class CourseDB {
         if(cursor!=null&&cursor.moveToFirst()){
             do{
                 Course course=new Course();
-                course.setCourseID(cursor.getInt(cursor.getColumnIndex("CourseID")));
-                course.setCourseName(cursor.getString(cursor.getColumnIndex("CourseName")));
-                course.setIsActive(cursor.getInt(cursor.getColumnIndex("isActive")));
+                course.setCourseID(cursor.getInt(cursor.getColumnIndex(COURSE_ID)));
+                course.setCourseName(cursor.getString(cursor.getColumnIndex(COURSE_NAME)));
+                course.setIsActive(cursor.getInt(cursor.getColumnIndex(COURSE_IS_ACTIVE)));
                 courseList.add(course);
             }while(cursor.moveToNext());
             if(cursor!=null){
@@ -51,7 +51,7 @@ public class CourseDB {
 
     public ArrayList<QuestionOptions.Option> getOptions(int questionId){
         DatabaseHelper helper = DatabaseHelper.getInstance();
-        String query="select * from QuestionChoice where QuestionID=?";
+        String query = "select * from " + TABLE_CHOICE + " where " + CHOICE_QUESTION_ID + "=?";
         SQLiteDatabase sqLiteDatabase = helper.openDatabase();
         Cursor cursor = sqLiteDatabase.rawQuery(query, new String[]{String.valueOf(questionId)});
 
@@ -59,10 +59,10 @@ public class CourseDB {
         if(cursor != null) {
             while (cursor.moveToNext()) {
                 QuestionOptions.Option option = new QuestionOptions.Option();
-                option.setOptionName(cursor.getString(cursor.getColumnIndex("ChoiceName")));
-                option.setOptionId(cursor.getInt(cursor.getColumnIndex("ChiceID")));
-                option.setQuestionId(cursor.getInt(cursor.getColumnIndex("QuestionID")));
-                option.setIsRightAnswer(cursor.getInt(cursor.getColumnIndex("IsRightChoice"))==1);
+                option.setOptionName(cursor.getString(cursor.getColumnIndex(CHOICE_NAME)));
+                option.setOptionId(cursor.getInt(cursor.getColumnIndex(CHOICE_ID)));
+                option.setQuestionId(cursor.getInt(cursor.getColumnIndex(CHOICE_QUESTION_ID)));
+                option.setIsRightAnswer(cursor.getInt(cursor.getColumnIndex(CHOICE_IS_RIGHT_CHOICE)) == 1);
                 list.add(option);
             }
             cursor.close();
@@ -74,7 +74,7 @@ public class CourseDB {
     public List<Question> getQuizQuestions(int weekID, int courseID){
         databaseHelper = DatabaseHelper.getInstance();
         List<Question> cardsList=new ArrayList<>();
-        String qry="select * from Questions where WeekID = ? and CourseID = ? ";
+        String qry = "select * from " + TABLE_QUESTION + " where " + QUESTION_WEEK_ID + " = ? and " + QUESTION_COURSE_ID + " = ? ";
         SQLiteDatabase database = databaseHelper.openDatabase();
         Cursor cursor=null;
         try {
@@ -84,10 +84,10 @@ public class CourseDB {
                 do {
                     //CREATE TABLE Questions(QuestionId integer primary key,QuestionName text,isActive bool, "WeekID" INTEGER, "CourseID" INTEGER)
                     Question question = new Question();
-                    question.setId(cursor.getInt(cursor.getColumnIndex("QuestionId")));
-                    question.setName(cursor.getString(cursor.getColumnIndex("QuestionName")));
-                    question.setWeekId(cursor.getInt(cursor.getColumnIndex("WeekID")));
-                    question.setCourseId(cursor.getInt(cursor.getColumnIndex("CourseID")));
+                    question.setId(cursor.getInt(cursor.getColumnIndex(QUESTION_ID)));
+                    question.setName(cursor.getString(cursor.getColumnIndex(QUESTION_NAME)));
+                    question.setWeekId(cursor.getInt(cursor.getColumnIndex(QUESTION_WEEK_ID)));
+                    question.setCourseId(cursor.getInt(cursor.getColumnIndex(QUESTION_COURSE_ID)));
                     cardsList.add(question);
 
                 }
@@ -110,9 +110,8 @@ public class CourseDB {
 
     public void updateCourse(int courseID,int isActive){
         databaseHelper = DatabaseHelper.getInstance();
-        List<Course> courseList=new ArrayList<Course>();
         StringBuilder stringBuilder=new StringBuilder();
-        stringBuilder.append("update  Courses set isActive= "+isActive+" where CourseID="+courseID);
+        stringBuilder.append("update " + TABLE_COURSE + " set " + COURSE_IS_ACTIVE + " = " + isActive + " where " + COURSE_ID + " = " + courseID);
         String qry=stringBuilder.toString();
         SQLiteDatabase database = databaseHelper.openDatabase();
          database.execSQL(qry);
