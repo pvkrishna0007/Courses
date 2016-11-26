@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.tenhrs.courses.R;
+import com.tenhrs.courses.database.DbTable;
 import com.tenhrs.courses.databinding.ActivityWeeklyCoursesNewBinding;
 
 /**
@@ -31,10 +32,6 @@ public class WeeklyCourseActivity extends BaseCompactActivity implements View.On
     }
 
 
-    private void launchOptionsActivity(){
-        startActivity(new Intent(this,OptionsActivity.class));
-    }
-
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
@@ -42,7 +39,13 @@ public class WeeklyCourseActivity extends BaseCompactActivity implements View.On
                startActivity(new Intent(this,FlashOptionsActivity.class));
                 break;
             case R.id.cb_quiz:
-                launchOptionsActivity();
+                Intent intent = new Intent(this, OptionsActivity.class);
+                Bundle extras = new Bundle();
+                extras.putInt(DbTable.WEEK_ID, 1);
+                extras.putInt(DbTable.COURSE_ID, 1);
+//                extras.putInt(OptionsActivity.QUESTION_COUNT, 20);
+                intent.putExtras(extras);
+                startActivity(intent);
                 break;
         }
     }
