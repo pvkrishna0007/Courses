@@ -1,6 +1,6 @@
 package com.tenhrs.courses.adapter;
 
-import android.content.Context;
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Build;
 import android.support.v7.widget.RecyclerView;
@@ -14,6 +14,7 @@ import android.widget.TextView;
 import com.tenhrs.courses.R;
 import com.tenhrs.courses.activity.HomeScreen;
 import com.tenhrs.courses.activity.WeeklyCourseActivity;
+import com.tenhrs.courses.common.Constants;
 import com.tenhrs.courses.model.Course;
 
 import java.util.HashMap;
@@ -26,11 +27,11 @@ public class SelectedLanguagesListAdapter extends RecyclerView.Adapter<SelectedL
 
 
 
-    private static Context context;
+    private Activity context;
     private List<Course> coursesList;
     private HashMap<Integer,Integer> drawablesMap=new HashMap<>();
 
-    public SelectedLanguagesListAdapter(Context context, List<Course> coursesList) {
+    public SelectedLanguagesListAdapter(Activity context, List<Course> coursesList) {
         this.context = context;
         this.coursesList=coursesList;
         prepareDrawablesData();
@@ -72,9 +73,10 @@ public class SelectedLanguagesListAdapter extends RecyclerView.Adapter<SelectedL
                 if(position == getItemCount()-1){
                     // last item
                     Intent intent=new Intent(context, HomeScreen.class);
-                    context.startActivity(intent);
+                    context.startActivityForResult(intent,Constants.RELOAD_REQ);
                 }else{
                     Intent intent=new Intent(context, WeeklyCourseActivity.class);
+                    intent.putExtra(Constants.COURSEID,coursesList.get(position).getCourseID());
                     context.startActivity(intent);
                 }
             }

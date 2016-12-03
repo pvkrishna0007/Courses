@@ -64,7 +64,7 @@
                 android:layout_weight="1"
                 android:checked="true"
                 android:drawablePadding="@dimen/dp_10"
-                android:drawableTop="@drawable/ic_week1_active"
+                android:drawableTop="@drawable/week_1_selector"
                 android:gravity="center"
                 android:text="Week1"
                 android:textColor="@color/black" />
@@ -76,7 +76,7 @@
                 android:layout_gravity="bottom"
                 android:layout_weight="1"
                 android:drawablePadding="@dimen/dp_10"
-                android:drawableTop="@drawable/ic_week2"
+                android:drawableTop="@drawable/week_2_selector"
                 android:gravity="center"
                 android:text="Week2"
                 android:textColor="@color/black" />
@@ -88,7 +88,7 @@
                 android:layout_gravity="bottom"
                 android:layout_weight="1"
                 android:drawablePadding="@dimen/dp_10"
-                android:drawableTop="@drawable/ic_week3"
+                android:drawableTop="@drawable/week_3_selector"
                 android:gravity="center"
                 android:text="Week3"
                 android:textColor="@color/black" />
@@ -100,7 +100,7 @@
                 android:layout_gravity="bottom"
                 android:layout_weight="1"
                 android:drawablePadding="@dimen/dp_10"
-                android:drawableTop="@drawable/ic_week4"
+                android:drawableTop="@drawable/week_4_selector"
                 android:gravity="center"
                 android:text="Week4"
                 android:textColor="@color/black" />

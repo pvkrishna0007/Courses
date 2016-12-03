@@ -10,6 +10,7 @@ import android.view.View;
 
 import com.tenhrs.courses.R;
 import com.tenhrs.courses.adapter.SelectedLanguagesListAdapter;
+import com.tenhrs.courses.common.Constants;
 import com.tenhrs.courses.database.CourseDB;
 import com.tenhrs.courses.databinding.ActivityCoursesListBinding;
 import com.tenhrs.courses.databinding.ActivityHomeScreanBinding;
@@ -34,6 +35,12 @@ public class SelectedCoursesActivity extends AppCompatActivity implements View.O
         list = (RecyclerView)homeScreanBinding.rvAllCourses;
         list.setHasFixedSize(true);
         list.setLayoutManager(lLayout);
+        setData();
+
+
+    }
+
+    private void setData() {
         CourseDB courseDB=new CourseDB(this);
         coursesList=courseDB.getCourses(1);
         SelectedLanguagesListAdapter languagesListAdapter= new SelectedLanguagesListAdapter(this,coursesList);
@@ -46,7 +53,18 @@ public class SelectedCoursesActivity extends AppCompatActivity implements View.O
 
 
     }
+
+
+
     private void launchWeeklyActivity(){
         startActivity(new Intent(this,WeeklyCourseActivity.class));
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(requestCode== Constants.RELOAD_REQ) {
+            setData();
+        }
     }
 }

@@ -7,6 +7,9 @@ import android.os.Environment;
  */
 public class Constants {
 
+    public static final String COURSEID="courseID";
+    public static final int RELOAD_REQ=1000;
+
     public static final String DB_NAME = "courses" +
             ".sqlite";
     public static final String DB_PATH = Environment.getExternalStorageDirectory().getPath() + "/CoursesDB/Database" + "/" + DB_NAME;

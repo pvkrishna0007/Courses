@@ -49,4 +49,6 @@ public class HomeScreen extends AppCompatActivity implements View.OnClickListene
     private void launchWeeklyActivity(){
         startActivity(new Intent(this,SelectedCoursesActivity.class));
     }
+
+
 }
