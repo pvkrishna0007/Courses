@@ -20,6 +20,7 @@ public class WeeklyCourseActivity extends BaseCompactActivity implements View.On
     private int courseID;
     private int weekID=0;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
